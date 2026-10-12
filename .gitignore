@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Environment variables & secrets
+.env
+*.pem
+keys/*.pem
+!keys/.gitkeep
+
+# SQLite Databases & logs
+data/*.sqlite
+data/*.sqlite-journal
+*.log
+
+# System files
+.DS_Store
+Thumbs.db
