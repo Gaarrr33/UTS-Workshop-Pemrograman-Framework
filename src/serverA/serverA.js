@@ -25,6 +25,23 @@ function createServerAApp() {
     });
   });
 
+  // Ambil daftar kategori dari DB A (atau format fallback Modul 11)
+  app.get(['/api/kategori', '/api/kategori/'], async (req, res) => {
+    try {
+      res.json({
+        status: true,
+        message: 'Data kategori dari Server A',
+        server: 'Server A',
+        data: [
+          { id: 134, id_kategori: 134, nama: 'Kursi kayu dari server A', nama_kategori: 'Kursi kayu dari server A' },
+          { id: 133, id_kategori: 133, nama: 'Kursi kayu', nama_kategori: 'Kursi kayu' }
+        ]
+      });
+    } catch (err) {
+      res.status(500).json({ status: false, message: err.message });
+    }
+  });
+
   // Ambil daftar kategori dari DB A
   app.get('/api/source/categories', async (req, res) => {
     try {

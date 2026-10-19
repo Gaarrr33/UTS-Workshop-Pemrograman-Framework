@@ -5,6 +5,9 @@
   "main": "start.js",
   "scripts": {
     "start": "node start.js",
+    "server:utama": "node server_utama.js",
+    "server:cadangan": "node server_cadangan.js",
+    "frontend": "npm --prefix frontend run dev",
     "server:a": "node src/serverA/index.js",
     "server:b": "node src/serverB/index.js",
     "db:init": "node src/scripts/initDb.js",

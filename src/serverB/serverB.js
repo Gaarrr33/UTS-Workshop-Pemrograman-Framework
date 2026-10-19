@@ -31,6 +31,23 @@ function createServerBApp() {
     });
   });
 
+  // Endpoint data kategori cadangan (fallback Modul 11)
+  app.get(['/apiserverb/kategori', '/apiserverb/kategori/'], async (req, res) => {
+    try {
+      res.json({
+        status: true,
+        message: 'Data kategori dari Server B (Fallback)',
+        server: 'Server B',
+        data: [
+          { id: 135, id_kategori: 135, nama: 'data kategori server b', nama_kategori: 'data kategori server b' },
+          { id: 134, id_kategori: 134, nama: 'Kursi kayu', nama_kategori: 'Kursi kayu' }
+        ]
+      });
+    } catch (err) {
+      res.status(500).json({ status: false, message: err.message });
+    }
+  });
+
   // Menyediakan Public Key Server B untuk enkripsi (RSA-OAEP)
   app.get('/api/receiver/public-key', (req, res) => {
     try {
